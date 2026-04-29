@@ -3,7 +3,7 @@ module tools
 go 1.25.0
 
 require (
-	github.com/openshift/cluster-capi-operator/manifests-gen v0.0.0-20260429092616-6f5ed04abddb
+	github.com/openshift/cluster-capi-operator/manifests-gen v0.0.0-20260429150927-40757eb5602c
 	sigs.k8s.io/kustomize/kustomize/v5 v5.8.0
 )
 
