@@ -3,7 +3,7 @@ module tools
 go 1.25.0
 
 require (
-	github.com/openshift/cluster-capi-operator/manifests-gen v0.0.0-20260414123540-317bfa4476b4
+	github.com/openshift/cluster-capi-operator/manifests-gen v0.0.0-20260429092616-6f5ed04abddb
 	sigs.k8s.io/kustomize/kustomize/v5 v5.8.0
 )
 
@@ -41,7 +41,7 @@ require (
 	github.com/monochromegane/go-gitignore v0.0.0-20200626010858-205db1a8cc00 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
-	github.com/openshift/api v0.0.0-20260306141135-f595753a3e66 // indirect
+	github.com/openshift/api v0.0.0-20260416105050-3c6b218b8a80 // indirect
 	github.com/sergi/go-diff v1.4.0 // indirect
 	github.com/spf13/cobra v1.10.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
@@ -64,7 +64,7 @@ require (
 	k8s.io/client-go v0.35.3 // indirect
 	k8s.io/klog/v2 v2.140.0 // indirect
 	k8s.io/kube-openapi v0.0.0-20260127142750-a19766b6e2d4 // indirect
-	k8s.io/utils v0.0.0-20260108192941-914a6e750570 // indirect
+	k8s.io/utils v0.0.0-20260210185600-b8788abfbbc2 // indirect
 	sigs.k8s.io/controller-runtime v0.23.3 // indirect
 	sigs.k8s.io/gateway-api v1.1.0 // indirect
 	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
