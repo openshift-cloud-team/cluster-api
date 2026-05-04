@@ -111,6 +111,8 @@ providers = {
             "../../go.mod",
             "../../go.sum",
             "../container",
+            "../inmemory",
+            "../kind",
             "api",
             "controllers",
             "docker",
@@ -360,6 +362,9 @@ def enable_provider(name, debug):
         k8s_yaml(p.get("context") + "/" + resource)
         additional_objs = additional_objs + decode_yaml_stream(read_file(p.get("context") + "/" + resource))
 
+    for resource in p.get("additional_uncategorized_resources", []):
+        k8s_yaml(p.get("context") + "/" + resource)
+
     if p.get("apply_provider_yaml", True):
         yaml = read_file("./.tiltbuild/yaml/{}.provider.yaml".format(name))
         k8s_yaml(yaml, allow_duplicates = True)
@@ -567,7 +572,7 @@ def deploy_clusterclass(clusterclass_name, label, filename, substitutions):
         icon_name = "note_add",
         text = "Apply `" + clusterclass_name + "` ClusterClass",
         inputs = [
-            text_input("NAMESPACE", default = substitutions.get("NAMESPACE")),
+            text_input("NAMESPACE", label = "NAMESPACE", default = substitutions.get("NAMESPACE")),
         ],
     )
 
@@ -579,7 +584,7 @@ def deploy_clusterclass(clusterclass_name, label, filename, substitutions):
         icon_name = "delete_forever",
         text = "Delete `" + clusterclass_name + "` ClusterClass",
         inputs = [
-            text_input("NAMESPACE", default = substitutions.get("NAMESPACE")),
+            text_input("NAMESPACE", label = "NAMESPACE", default = substitutions.get("NAMESPACE")),
         ],
     )
 
@@ -604,10 +609,10 @@ def deploy_cluster_template(template_name, label, filename, substitutions):
         icon_name = "add_box",
         text = "Create `" + template_name + "` cluster",
         inputs = [
-            text_input("NAMESPACE", default = substitutions.get("NAMESPACE")),
-            text_input("KUBERNETES_VERSION", default = substitutions.get("KUBERNETES_VERSION")),
-            text_input("CONTROL_PLANE_MACHINE_COUNT", default = substitutions.get("CONTROL_PLANE_MACHINE_COUNT")),
-            text_input("WORKER_MACHINE_COUNT", default = substitutions.get("WORKER_MACHINE_COUNT")),
+            text_input("NAMESPACE", label = "NAMESPACE", default = substitutions.get("NAMESPACE")),
+            text_input("KUBERNETES_VERSION", label = "KUBERNETES_VERSION", default = substitutions.get("KUBERNETES_VERSION")),
+            text_input("CONTROL_PLANE_MACHINE_COUNT", label = "CONTROL_PLANE_MACHINE_COUNT", default = substitutions.get("CONTROL_PLANE_MACHINE_COUNT")),
+            text_input("WORKER_MACHINE_COUNT", label = "WORKER_MACHINE_COUNT", default = substitutions.get("WORKER_MACHINE_COUNT")),
         ],
     )
 
@@ -619,7 +624,7 @@ def deploy_cluster_template(template_name, label, filename, substitutions):
         icon_name = "delete_forever",
         text = "Delete `" + template_name + "` clusters",
         inputs = [
-            text_input("NAMESPACE", default = substitutions.get("NAMESPACE")),
+            text_input("NAMESPACE", label = "NAMESPACE", default = substitutions.get("NAMESPACE")),
         ],
     )
 
