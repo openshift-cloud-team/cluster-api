@@ -24498,6 +24498,8 @@ spec:
         - --feature-gates=MachinePool=${EXP_MACHINE_POOL:=true},ClusterTopology=${CLUSTER_TOPOLOGY:=false},RuntimeSDK=${EXP_RUNTIME_SDK:=false},MachineSetPreflightChecks=${EXP_MACHINE_SET_PREFLIGHT_CHECKS:=false}
         - --additional-sync-machine-labels=.*
         - --additional-sync-machine-annotations=.*
+        - --tls-min-version=${TLS_MIN_VERSION}
+        - --tls-cipher-suites=${TLS_CIPHER_SUITES}
         command:
         - /manager
         env:
